@@ -6,12 +6,15 @@ class EpisodiosServices:
         resultado_episodios = []
 
         for episodio in episodios:
+
+            quantidade_personagens = len(episodio.url_personagens_episodio.split(","))
+
             resultado_episodios.append({
                 "id": episodio.id,
                 "nome_episodio": episodio.nome_episodio,
-                "data_lancamento": episodio.data_lancamento,
+                "data_lancamento": episodio.data_lancamento.strftime("%d/%m/%Y"),
                 "nomenclatura_episodio": episodio.nomenclatura_episodio,
-                "url_personagem_episodio": episodio. url_personagens_episodio,
+                "quantidade_personagens": quantidade_personagens,
                 "api": episodio.nome_api
             })
         return resultado_episodios

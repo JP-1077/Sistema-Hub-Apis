@@ -12,13 +12,13 @@ class FilmesService:
         for filme in filmes:
             resultado_filmes.append({
                 "id": filme.id,
-                "Titulo": filme.titulo_filme,
-                "Episodio": filme.episodio,
-                "Texto Abertura": filme.texto_abertura,
-                "Diretor": filme.diretor,
-                "Produtor": filme.produtor,
-                "Data de Lancamento": filme.data_lancamento,
-                "Nome API": filme.nome_api,
+                "titulo_filme": filme.titulo_filme,
+                "episodio": filme.episodio,
+                "texto_abertura": filme.texto_abertura,
+                "diretor": filme.diretor,
+                "produtor": filme.produtor,
+                "data_lancamento": filme.data_lancamento,
+                "nome_api": filme.nome_api,
             })
 
         return resultado_filmes

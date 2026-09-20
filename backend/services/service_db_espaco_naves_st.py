@@ -9,20 +9,21 @@ class EspacoNavesService:
 
         for nave in naves:
             resultado_naves.append({
-                "Nome": nave.nome,
-                "Modelo": nave.modelo,
-                "Fabricante": nave.fabricante,
-                "Custo em Créditos": nave.custo_creditos,
-                "Comprimento": nave.comprimento,
-                "Velocidade Maxima na Atmosfera": nave.velocidade_maxima_atmosfera,
-                "Tripulação": nave.tripulacao,
-                "Passageiros": nave.passageiros,
-                "Capacidade de Carga": nave.capacidade_carga,
-                "Consumiveis": nave.consumiveis,
-                "Classificacao Hiperpropulsor": nave.classificacao_hiperpropulsor,
-                "Mglt": nave.mglt,
-                "Classe": nave.classe_nave,
-                "Nome da API": nave.nome_api,
+                "id": nave.id,
+                "nome": nave.nome,
+                "modelo": nave.modelo,
+                "fabricante": nave.fabricante,
+                "custo_creditos": nave.custo_creditos,
+                "comprimento": nave.comprimento,
+                "velocidade_maxima_atmosfera": nave.velocidade_maxima_atmosfera,
+                "tripulacao": nave.tripulacao,
+                "passageiros": nave.passageiros,
+                "capacidade_carga": nave.capacidade_carga,
+                "consumiveis": nave.consumiveis,
+                "classificacao_hiperpropulsor": nave.classificacao_hiperpropulsor,
+                "mglt": nave.mglt,
+                "classe_nave": nave.classe_nave,
+                "nome_api": nave.nome_api,
             })
 
         return resultado_naves

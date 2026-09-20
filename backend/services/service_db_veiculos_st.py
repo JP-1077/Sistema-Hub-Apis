@@ -12,18 +12,18 @@ class VeiculosService:
         for veiculo in veiculos:
             resultado_veiculos.append({
                 "id": veiculo.id,
-                "Nome Veiculo":veiculo.nome_veiculo,
-                "Modelo": veiculo.modelo,
-                "Fabricante": veiculo.fabricante,
-                "Custo": veiculo.custo_creditos ,
-                "Comprimento": veiculo.comprimento,
-                "Velocidade Maxima Atmosfera": veiculo.velocidade_maxima_atmosfera,
-                "Tripulacao": veiculo.tripulacao,
-                "Passageiros": veiculo.passageiros,
-                "Capacidade Carga": veiculo.capacidade_carga,
-                "Consumiveis": veiculo.consumiveis,
-                "Classe Veiculo": veiculo.classe_veiculo,
-                "Nome API": veiculo.nome_api,
+                "nome_veiculo":veiculo.nome_veiculo,
+                "modelo": veiculo.modelo,
+                "fabricante": veiculo.fabricante,
+                "custo_creditos": veiculo.custo_creditos ,
+                "comprimento": veiculo.comprimento,
+                "velocidade_maxima_atmosfera": veiculo.velocidade_maxima_atmosfera,
+                "tripulacao": veiculo.tripulacao,
+                "passageiros": veiculo.passageiros,
+                "capacidade_carga": veiculo.capacidade_carga,
+                "consumiveis": veiculo.consumiveis,
+                "classe_veiculo": veiculo.classe_veiculo,
+                "nome_api": veiculo.nome_api,
             })
 
         return resultado_veiculos
