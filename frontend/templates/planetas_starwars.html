@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Planetas | Star Wars</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com">
+
+<style>
+
+        :root{
+
+            --bg:#020617;
+            --border:#1e293b;
+
+            --text:#e5e7eb;
+            --muted:#94a3b8;
+
+            --accent:#38bdf8;
+
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Inter',sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #0f172a,
+                    #020617
+                );
+
+            color:var(--text);
+
+            min-height:100vh;
+
+        }
+
+        .container{
+
+            max-width:1400px;
+
+            margin:auto;
+
+            padding:48px 24px;
+
+        }
+
+        /* ===================================
+                        HEADER
+        =================================== */
+        .app-header{
+            position:sticky;
+            top:0;
+
+            z-index:100;
+
+            backdrop-filter:blur(10px);
+
+            background:
+                rgba(2,6,23,.75);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .app-header__content{
+            max-width:1200px;
+
+            margin:0 auto;
+
+            padding:20px 24px;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-weight:800;
+            font-size:20px;
+        }
+
+        .env-badge{
+            padding:8px 14px;
+
+            border-radius:999px;
+
+            background:
+                rgba(56,189,248,.10);
+
+            color:var(--accent);
+
+            font-size:12px;
+            font-weight:700;
+            letter-spacing:.08em;
+        }
+
+        /* STATS */
+
+        .stats-grid{
+
+            display:grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px,1fr)
+                );
+
+            gap:18px;
+
+            margin-top:30px;
+            margin-bottom:40px;
+        }
+
+        .stat-card{
+
+            padding:24px;
+
+            border-radius:16px;
+
+            border:1px solid var(--border);
+
+            background:
+                rgba(15,23,42,.45);
+
+        }
+
+        .stat-label{
+
+            color:var(--muted);
+
+            font-size:14px;
+
+        }
+
+        .stat-value{
+
+            margin-top:10px;
+
+            font-size:32px;
+
+            font-weight:700;
+
+        }
+
+        /* ===================================
+           CONTAINER
+        =================================== */
+
+        .container{
+            max-width:1200px;
+
+            margin:0 auto;
+
+            padding:
+                56px 24px
+                80px;
+
+            display:grid;
+            gap:32px;
+        }
+
+        /* ===================================
+           HERO
+        =================================== */
+        .hero{
+            text-align:center;
+        }
+
+        .hero-badge{
+            display:inline-block;
+
+            margin-bottom:18px;
+
+            padding:8px 14px;
+
+            border-radius:999px;
+
+            background:
+                rgba(56,189,248,.12);
+
+            color:var(--accent);
+
+            font-size:12px;
+            font-weight:700;
+            letter-spacing:.08em;
+        }
+
+        .hero h1{
+            font-size:clamp(2.4rem,5vw,4rem);
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            max-width:800px;
+            margin:auto;
+
+            color:var(--muted);
+            line-height:1.8;
+            font-size:1.05rem;
+        }
+
+        .hero-actions{
+            display:flex;
+            justify-content:center;
+            gap:16px;
+
+            flex-wrap:wrap;
+
+            margin-top:32px;
+        }
+
+        .btn{
+            padding:14px 22px;
+
+            border-radius:12px;
+
+            font-weight:600;
+
+            transition:.25s;
+        }
+
+        .btn-primary{
+            background:var(--accent);
+            color:#02111f;
+        }
+
+        .btn-primary:hover{
+            background:var(--accent-hover);
+        }
+
+        .btn-secondary{
+            border:1px solid var(--border);
+            color:var(--text);
+        }
+
+        .btn-secondary:hover{
+            background:
+                rgba(255,255,255,.05);
+        }
+
+        /* ===================================
+           SEARCH
+        =================================== */
+        .search-box{
+            width:100%;
+
+            margin:40px 0 24px 0;
+
+        }
+
+        .search-box input{
+            width:100%;
+
+            padding:18px 20px;
+
+            border-radius:14px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(15,23,42,.5);
+
+            color:var(--text);
+
+            font-size:15px;
+        }
+
+        .search-box input:focus{
+            outline:none;
+
+            border-color:
+                var(--accent);
+        }
+
+
+        /* SEARCH */
+
+        .search-input{
+
+            width:100%;
+
+            padding:16px;
+
+            border-radius:12px;
+
+            border:1px solid var(--border);
+
+            background:
+                rgba(15,23,42,.4);
+
+            color:var(--text);
+
+            font-size:15px;
+
+        }
+
+        .search-input:focus{
+
+            outline:none;
+
+            border-color:
+                var(--accent);
+
+        }
+
+        /* TABLE */
+
+        .table-wrapper{
+
+            overflow:auto;
+
+            border-radius:18px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(15,23,42,.25);
+
+        }
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+
+            min-width:900px;
+
+        }
+
+        thead{
+
+            background:
+                rgba(15,23,42,.65);
+
+        }
+
+        th{
+
+            text-align:left;
+
+            padding:18px;
+
+            color:var(--muted);
+
+            font-size:13px;
+
+            text-transform:uppercase;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+        td{
+
+            padding:18px;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+        tbody tr:hover{
+
+            background:
+                rgba(56,189,248,.04);
+
+        }
+
+        .episode-code{
+
+            color:var(--accent);
+
+            font-weight:600;
+
+        }
+
+        .characters-badge{
+
+            display:inline-block;
+
+            padding:6px 10px;
+
+            background:
+                rgba(56,189,248,.10);
+
+            color:
+                var(--accent);
+
+            border-radius:999px;
+
+            font-size:12px;
+
+            font-weight:600;
+
+        }
+        /* ===================================
+           FOOTER
+        =================================== */
+
+        .app-footer{
+            border-top:
+                1px solid var(--border);
+
+            text-align:center;
+
+            padding:30px;
+
+            color:var(--muted);
+        }
+
+        .stack{
+            margin-top:10px;
+            font-size:13px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="app-header">
+    <div class="app-header__content">
+
+        <div class="logo">Sistema Hub APIs</div>
+
+        <span class="env-badge">Planetas - Star Wars</span>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <span class="hero-badge"> Sistema Hub APIs </span>
+
+        <h2>Explore dados e informações sobre os Planetas da saga StarWars</h2>
+
+        <p>Descubra planetas, sistemas e mundos da galáxia.</p>
+
+    </section>
+
+    <!-- KPIs -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-label">Total de Planetas armazenadas</div>
+
+            <div class="stat-value">60</div>
+
+        </div>
+
+        <div class="stat-card">
+
+            <div class="stat-label">Planetas</div>
+
+            <div class="stat-value">60-</div>
+
+        </div>
+
+    </section>
+
+    <!-- PESQUISA -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Pesquisar planeta pelo ID...">
+
+    </div>
+
+    <!-- TABELA -->
+
+    <div class="table-wrapper">
+
+        <table id="PlanetasTable">
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Planeta</th>
+                    <th>Periodo de rotação</th>
+                    <th>Perioodo orbita</th>
+                    <th>Diametro</th>
+                    <th>Clima</th>
+                    <th>Gravidade</th>
+                    <th>Terreno</th>
+                    <th>Agua Superficie</th>
+                    <th>População</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for planeta in planetas_st %}
+
+                <tr>
+
+                    <td>{{ planeta.id }}</td>
+                    <td><span class="episode-code">{{ planeta.nome_planeta }}</span></td>
+                    <td>{{ planeta.periodo_rotacao }}</td>
+                    <td>{{ planeta.periodo_orbital }}</td>
+                    <td>{{ planeta.diametro }}</td>
+                    <td>{{ planeta.clima }}</td>
+                    <td>{{ planeta.gravidade }}</td>
+                    <td>{{ planeta.terreno }}</td>
+                    <td>{{ planeta.agua_superficie }}</td>
+                    <td>{{ planeta.populacao }}</td>
+
+                    <td></td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener(
+    "keyup",
+    function(){
+
+        const termo =
+            this.value.toLowerCase().trim();
+
+        const linhas =
+            document.querySelectorAll(
+                "#PlanetasTable tbody tr"
+            );
+
+        linhas.forEach(linha => {
+
+            const id =
+                linha.cells[0].innerText.trim();
+
+            const personagem =
+                linha.cells[1].innerText.toLowerCase();
+
+            const dimensao =
+                linha.cells[3].innerText.toLowerCase();
+
+            let encontrou = false;
+
+            if (!isNaN(termo) && termo !== "") {
+
+                encontrou = id === termo;
+
+            } else {
+
+                encontrou =
+                    personagem.includes(termo) ||
+                    dimensao.includes(termo);
+
+            }
+
+            linha.style.display =
+                encontrou ? "" : "none";
+
+        });
+
+    }
+);
+
+</script>
+
+<footer class="app-footer">
+
+    <p>
+        © • Sistema Hub APIs
+    </p>
+
+    <p class="stack">
+        João Pedro Mendes Fonseca
+    </p>
+
+</footer>
+
+</body>
+
+</html>
