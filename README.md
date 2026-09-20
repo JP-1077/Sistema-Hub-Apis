@@ -68,113 +68,7 @@ Frontend (JavaScript)
 | 
 Usuário**
 
-```
-### 📁 Estrutura de Pastas do Projeto
-
-```
-Sistema Hub APIs Públicas/
-│
-├── 📄 README.md                      # Documentação principal
-├── 📄 CONTRIBUTING.md                # Guia de contribuição
-├── 📄 .gitignore                     # Arquivos ignorados pelo Git
-├── 📄 requirements.txt               # Dependências Python
-├── 📄 .env.example                   # Variáveis de ambiente (template)
-│
-│
-├── 📁 backend/                       # ⚙️ NÚCLEO DA APLICAÇÃO
-│   ├── 📄 app.py                     # Factory function e inicialização Flask
-│   ├── 📄 config.py                  # Configurações (dev, test, prod)
-│   ├── 📄 run.py                     # Entry point para rodar servidor
-│   │
-│   ├── 📁 models/                    # 🗄️ Definições de tabelas SQLAlchemy
-│   │   ├── 📄 __init__.py
-│   │   ├── 📄 character.py           # Modelo para personagens genéricos
-│   │   ├── 📄 movie.py               # Modelo para filmes
-│   │   └── 📄 planet.py              # Modelo para planetas
-│   │
-│   ├── 📁 routes/                    # 🛣️ Endpoints REST da API
-│   │   ├── 📄 __init__.py
-│   │   ├── 📄 rickmorty.py           # Rotas: /api/rickmorty/*
-│   │   ├── 📄 disney.py              # Rotas: /api/disney/*
-│   │   └── 📄 starwars.py            # Rotas: /api/starwars/*
-│   │
-│   ├── 📁 services/                  # 🔧 Lógica de negócio e integrações
-│   │   ├── 📄 __init__.py
-│   │   ├── 📄 api_consumer.py        # Consumo das APIs externas
-│   │   ├── 📄 cache_manager.py       # Estratégia de cache em memória
-│   │   ├── 📄 data_processor.py      # Transformação e validação de dados
-│   │   └── 📄 sync_manager.py        # Sincronização de dados
-│   │
-│   ├── 📁 database/                  # 💾 Gerenciamento do banco de dados
-│   │   ├── 📄 __init__.py
-│   │   ├── 📄 db.py                  # Inicialização SQLAlchemy + context
-│   │   └── 📁 migrations/            # Migrações futuras (Alembic)
-│   │
-│   └── 📁 utils/                     # 🛠️ Utilitários e helpers
-│       ├── 📄 __init__.py
-│       ├── 📄 logger.py              # Configuração de logging
-│       ├── 📄 decorators.py          # Decoradores reutilizáveis
-│       └── 📄 constants.py           # Constantes da aplicação
-│
-│
-├── 📁 frontend/                      # 🎨 INTERFACE DO USUÁRIO
-│   ├── 📄 index.html                 # Página principal (dashboard)
-│   ├── 📄 about.html                 # Página sobre o projeto
-│   ├── 📄 404.html                   # Página de erro
-│   │
-│   ├── 📁 css/
-│   │   ├── 📄 style.css              # Estilos principais (grid, cores, tipografia)
-│   │   ├── 📄 responsive.css         # Media queries (mobile-first)
-│   │   └── 📄 animations.css         # Transições e animações
-│   │
-│   ├── 📁 js/
-│   │   ├── 📄 main.js                # Lógica principal e inicialização DOM
-│   │   ├── 📄 api-client.js          # Classe para comunicação com backend
-│   │   ├── 📄 dom-utils.js           # Funções para manipulação do DOM
-│   │   ├── 📄 constants.js           # URLs, configurações, enums
-│   │   └── 📄 utils.js               # Helpers gerais (formatação, etc)
-│   │
-│   └── 📁 assets/                    # 📦 Recursos estáticos
-│       ├── 📁 images/                # Imagens (personagens, backdrops)
-│       ├── 📁 icons/                 # Ícones (SVG, favicons)
-│       └── 📁 fonts/                 # Web fonts customizadas
-│
-│
-├── 📁 tests/                         # 🧪 Suite de testes (futuro)
-│   ├── 📄 __init__.py
-│   ├── 📁 backend/
-│   │   ├── 📄 test_routes.py         # Testes de endpoints
-│   │   └── 📄 test_services.py       # Testes de lógica
-│   └── 📁 frontend/
-│       └── 📄 test_api_client.js     # Testes de API client
-│
-│
-└── 📁 docs/                          # 📚 Documentação técnica
-    ├── 📄 API_REFERENCE.md           # Referência completa de endpoints
-    ├── 📄 SETUP.md                   # Guia de instalação e configuração
-    ├── 📄 ARCHITECTURE.md            # Diagrama e decisões arquiteturais
-    └── 📄 DATABASE_SCHEMA.md         # Estrutura do banco de dados
-```
-
-### Explicação da Estrutura
-
-#### **Backend**
-- Separação clara entre rotas, lógica de negócio e acesso a dados
-- Services encapsulam a complexidade de consumir APIs externas
-- Models definem o contrato de dados com o banco
-
-#### **Frontend**
-- Estrutura simples e escalável
-- CSS organizado por responsabilidade
-- JavaScript modular com separação de conceitos
-- Assets centralizados para fácil manutenção
-
-#### **Raiz do Projeto**
-- Configurações globais (.env, requirements.txt)
-- Documentação acessível (README, CONTRIBUTING)
-- Git versionado desde o início
-
----
+````
 
 ## 🔧 Ferramentas Utilizadas
 
@@ -215,8 +109,6 @@ Rick & Morty:  https://rickandmortyapi.com/api
 Disney:        https://api.disneyapi.dev
 Star Wars:     https://swapi.dev/api/
 ```
-
-Todas são **públicas e gratuitas**, sem autenticação necessária.
 
 ---
 
